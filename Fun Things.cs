@@ -50,7 +50,7 @@ public static void Main(string[] args)
 static void AreaOfTriangle() // Self explanatory 
 {
     Console.Write("What's the base of the triangle? - "); 
-    double BOT = Convert.ToDouble(Console.ReadLine());
+    double BOT = Convert.ToDouble(Console.ReadLine()); // Makes BOT, standing for Base of Triangle, HOT, Height of Triangle, and AOT, Area of Triangle. A double is basically a decimal, like 7.34 or something
     Console.Write("What's the height? - ");
     double HOT = Convert.ToDouble(Console.ReadLine());
     double AOT = (BOT * HOT) / 2;
@@ -61,8 +61,8 @@ static void AreaOfTriangle() // Self explanatory
 static void DaysOld() // I like this one
 {
     Console.Write("What is your age? - ");
-    int age = Convert.ToInt32(Console.ReadLine());
-    int days = age * 365;
+    int age = Convert.ToInt32(Console.ReadLine()); // Makes a variable called age, and makes it an int, basically just a normal number like 7 or -13. Has it read input with "Console.ReadLine();" and converts it to a 32 bit integer, aka Int32
+    int days = age * 365; // Multiples the input by 365.
     Console.WriteLine($"You are around {days} days old");
     Console.WriteLine();
 }
@@ -100,7 +100,7 @@ static void Calculator() // My favourite! I love making calculators
 static void inchesToCentimetres() // Just use metric system
 {
     Console.Write("Type the amount of inches - ");
-    double inches = Convert.ToDouble(Console.ReadLine());
+    double inches = Convert.ToDouble(Console.ReadLine()); // Using "Convert.ToDouble" to, well, convert input to a double.
     double cm = inches * 2.54;
     Console.WriteLine($"{inches} inches is {cm} centimetres");
 }
