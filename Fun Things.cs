@@ -5,34 +5,39 @@
     <<--------->>
 */
 
+public static void print(var msg) => Console.WriteLine(msg); // Console.WriteLine is way to long.
+public static void printSL(var msg) => Console.Write(msg); // SL stands for "same line"
+
+// ^ These are gonna be horrible for maintainabilty, I dunno why I did this.
+
 public static void Main(string[] args)
 {
     Console.Title = "Gizmos";
     bool menu = true;
-    Console.WriteLine($"\t\t\tHello!");
+    print($"\t\t\tHello!");
 
     while (menu)
     {
-        Console.WriteLine("**----------------------------------------------------**"); // Little menu thing to let users know what they can do
-        Console.WriteLine("1 - Calculate the area of a triangle\t4 - Fizz Buzz");
-        Console.WriteLine("2 - How many days old\t\t\t5 - Scream");
-        Console.WriteLine("3 - Seconds in Minutes\t\t\t6 - Number Guessing Game");
-        Console.WriteLine("7 - Calculator\t\t 8 - Inches to Centimetres");
-        Console.WriteLine("9 - Divisible by 5");
+        print("**----------------------------------------------------**"); // Little menu thing to let users know what they can do
+        print("1 - Calculate the area of a triangle\t4 - Fizz Buzz");
+        print("2 - How many days old\t\t\t5 - Scream");
+        print("3 - Seconds in Minutes\t\t\t6 - Number Guessing Game");
+        print("7 - Calculator\t\t 8 - Inches to Centimetres");
+        print("9 - Divisible by 5");
 
-        Console.WriteLine();
+        print();
 
 
 
-        Console.WriteLine("Enter a number above or type \"Bye\" to exit.");
-        Console.WriteLine();
-        Console.WriteLine("ps, this doesnt have exception handling, so play by the rules please!"); // Too lazy to add it
+        print("Enter a number above or type \"Bye\" to exit.");
+        print();
+        print("ps, this doesnt have exception handling, so play by the rules please!"); // Too lazy to add it
         string toolInput = Console.ReadLine(); 
-        Console.WriteLine();
+        print();
 
         switch (toolInput) // lets the user enter a number to enter a tool, or type "Bye" to exit
         {
-            case null: Console.WriteLine("Enter a number above or type \"Bye\" to exit."); break;
+            case null: print("Enter a number above or type \"Bye\" to exit."); break;
             case "1": AreaOfTriangle(); break;
             case "2": DaysOld(); break;
             case "3": MinutesToSeconds(); break;
@@ -42,67 +47,67 @@ public static void Main(string[] args)
             case "7": Calculator(); break;
             case "8": inchesToCentimetres(); break;
             case "9": DivisibleBy5(); break;
-            case "Bye": Console.WriteLine("Ok, bye!"); menu = false; break;
+            case "Bye": print("Ok, bye!"); menu = false; break;
         }
     }
 }
 
 static void AreaOfTriangle() // Self explanatory 
 {
-    Console.Write("What's the base of the triangle? - "); 
+    printSL("What's the base of the triangle? - "); 
     double BOT = Convert.ToDouble(Console.ReadLine()); // Makes BOT, standing for Base of Triangle, HOT, Height of Triangle, and AOT, Area of Triangle. A double is basically a decimal, like 7.34 or something
-    Console.Write("What's the height? - ");
+    printSL("What's the height? - ");
     double HOT = Convert.ToDouble(Console.ReadLine());
     double AOT = (BOT * HOT) / 2;
-    Console.WriteLine($"The area of the triangle is {AOT}");
-    Console.WriteLine();
+    print($"The area of the triangle is {AOT}");
+    print();
 }
 
 static void DaysOld() // I like this one
 {
-    Console.Write("What is your age? - ");
+    printSL("What is your age? - ");
     int age = Convert.ToInt32(Console.ReadLine()); // Makes a variable called age, and makes it an int, basically just a normal number like 7 or -13. Has it read input with "Console.ReadLine();" and converts it to a 32 bit integer, aka Int32
     int days = age * 365; // Multiples the input by 365.
-    Console.WriteLine($"You are around {days} days old");
-    Console.WriteLine();
+    print($"You are around {days} days old");
+    print();
 }
 
 static void MinutesToSeconds() // I like this one too
 {
-    Console.Write("How many minutes do you want to convert into seconds? - ");
+    printSL("How many minutes do you want to convert into seconds? - ");
     int minutes = Convert.ToInt32(Console.ReadLine());
     int seconds = minutes * 60;
-    Console.WriteLine($"{minutes} minutes is {seconds} seconds.");
-    Console.WriteLine();
+    print($"{minutes} minutes is {seconds} seconds.");
+    print();
 }
 
 static void Calculator() // My favourite! I love making calculators 
 {
-    Console.Write("Number 1 - ");
+    printSL("Number 1 - ");
     int x = Convert.ToInt32(Console.ReadLine());
-    Console.Write("Number 2 - ");
+    printSL("Number 2 - ");
     int y = Convert.ToInt32(Console.ReadLine());
-    Console.WriteLine($"What do you want to do?");
-    Console.WriteLine("+ Addition\n- Subraction\nx Multiplication\n/ Division");
+    print($"What do you want to do?");
+    print("+ Addition\n- Subraction\nx Multiplication\n/ Division");
     string func = Console.ReadLine();
 
     switch (func)
     {
-        case null: Console.WriteLine("Enter a function above"); break;
-        case "+": Console.WriteLine($"{x} {func} {y} = {x + y}"); Console.WriteLine(); break;
-        case "-": Console.WriteLine($"{x} {func} {y} = {x - y}"); Console.WriteLine(); break;
+        case null: print("Enter a function above"); break;
+        case "+": print($"{x} {func} {y} = {x + y}"); print(); break;
+        case "-": print($"{x} {func} {y} = {x - y}"); print(); break;
         case "X":
-        case "x": Console.WriteLine($"{x} {func} {y} = {x * y}"); Console.WriteLine(); break;
-        case "/": Console.WriteLine($"{x} {func} {y} = {x / y}"); Console.WriteLine(); break;
+        case "x": print($"{x} {func} {y} = {x * y}"); print(); break;
+        case "/": print($"{x} {func} {y} = {x / y}"); print(); break;
     }
 }
 
 static void inchesToCentimetres() // Just use metric system
 {
-    Console.Write("Type the amount of inches - ");
+    printSL("Type the amount of inches - ");
     double inches = Convert.ToDouble(Console.ReadLine()); // Using "Convert.ToDouble" to, well, convert input to a double.
     double cm = inches * 2.54;
-    Console.WriteLine($"{inches} inches is {cm} centimetres");
+    print($"{inches} inches is {cm} centimetres");
 }
 
 static void guessingGame() // Probably a few variables unused but it is what it is
@@ -127,19 +132,19 @@ static void guessingGame() // Probably a few variables unused but it is what it 
             guess = Convert.ToInt32(Console.ReadLine());
             if (guess > number)
             {
-                Console.WriteLine("Guess is too high");
+                print("Guess is too high");
             }
             else if (guess < number)
             {
-                Console.WriteLine("Guess is too low");
+                print("Guess is too low");
             }
             guesses++;
         }
-        Console.WriteLine($"Number - {number}");
-        Console.WriteLine("You win!");
-        Console.WriteLine($"It took {guesses} guesses to get it");
+        print($"Number - {number}");
+        print("You win!");
+        print($"It took {guesses} guesses to get it");
 
-        Console.WriteLine("Play again? y/n ");
+        print("Play again? y/n ");
         answer = Console.ReadLine();
         answer = answer.ToUpper();
 
@@ -153,45 +158,45 @@ static void guessingGame() // Probably a few variables unused but it is what it 
 
 static void divisibleFive()
 {
-    Console.WriteLine("Enter a number, and I'll tell you if it's evenly divisible by 5 - ");
+    print("Enter a number, and I'll tell you if it's evenly divisible by 5 - ");
     int input = Convert.ToInt32(Console.ReadLine());
 
     if (input % 5 == 0)
-        Console.WriteLine($"Yes, {input} is evenly divisible by 5");
+        print($"Yes, {input} is evenly divisible by 5");
     else
-        Console.WriteLine($"No, {input} is not evenly divisible by 5");
+        print($"No, {input} is not evenly divisible by 5");
 }
 
 static void scream() // This ones funny
 {
-    Console.Write("Type anything, and I'll scream it back at you very loudly - ");
+    printSL("Type anything, and I'll scream it back at you very loudly - ");
     string input = Console.ReadLine();
 
-    Console.WriteLine($"{input.ToUpper()}!!!");
+    print($"{input.ToUpper()}!!!");
 }
 
 static void fizzBuzz() // Annoying, I hate fizz buzz things.
 {
-  Console.Write("Type a number, and I'll output FizzBuzz up to that number - ");
+  printSL("Type a number, and I'll output FizzBuzz up to that number - ");
   int input = Convert.ToInt32(Console.ReadLine());
 
 for (int i = 1; i <= input; i++)
   {
     if (i % 3 == 0 && i % 5 == 0)
     {
-      Console.WriteLine("Fizz Buzz!");
+      print("Fizz Buzz!");
     }
     else if (i % 3 == 0)
     {
-      Console.WriteLine("Fizz!");
+      print("Fizz!");
     }
     else if (i % 5 == 0)
     {
-      Console.WriteLine("Buzz!");
+      print("Buzz!");
     }
     else
     {
-      Console.WriteLine(i);
+      print(i);
     }
   }
 }
